@@ -1,0 +1,936 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Affordable Healthcare Finder
+  </title>
+
+  <style>
+
+    * {
+
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+
+    }
+
+    body {
+
+      background:
+        linear-gradient(
+          to right,
+          #dbeafe,
+          #ffffff,
+          #dcfce7
+        );
+
+    }
+
+    /* LOGIN */
+
+    #loginPage {
+
+      height: 100vh;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+    }
+
+    .login-box {
+
+      background: white;
+
+      padding: 40px;
+
+      width: 350px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 5px 15px gray;
+
+      text-align: center;
+
+    }
+
+    .login-box h1 {
+
+      color: #2563eb;
+
+      margin-bottom: 20px;
+
+    }
+
+    input {
+
+      width: 100%;
+
+      padding: 12px;
+
+      margin-top: 15px;
+
+      border-radius: 10px;
+
+      border: 1px solid gray;
+
+    }
+
+    button {
+
+      padding: 12px 20px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #2563eb;
+
+      color: white;
+
+      cursor: pointer;
+
+      margin-top: 15px;
+
+      font-size: 16px;
+
+    }
+
+    button:hover {
+
+      background: #1d4ed8;
+
+    }
+
+    /* MAIN WEBSITE */
+
+    #mainWebsite {
+
+      display: none;
+
+    }
+
+    nav {
+
+      background: white;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding: 20px;
+
+      box-shadow: 0 2px 10px gray;
+
+      position: sticky;
+
+      top: 0;
+
+    }
+
+    nav h1 {
+
+      color: #2563eb;
+
+    }
+
+    nav a {
+
+      text-decoration: none;
+
+      margin-left: 20px;
+
+      color: black;
+
+      font-weight: bold;
+
+    }
+
+    .hero {
+
+      text-align: center;
+
+      padding: 60px 20px;
+
+    }
+
+    .hero h2 {
+
+      font-size: 50px;
+
+      color: #2563eb;
+
+    }
+
+    .hero p {
+
+      margin-top: 20px;
+
+      font-size: 20px;
+
+      color: gray;
+
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      margin-top: 40px;
+
+      color: #2563eb;
+
+      font-size: 40px;
+
+    }
+
+    .cards {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      padding: 30px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      width: 370px;
+
+      padding: 20px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 5px 10px gray;
+
+    }
+
+    .card h3 {
+
+      color: green;
+
+      margin-bottom: 10px;
+
+    }
+
+    .medicine {
+
+      text-align: center;
+
+      padding: 50px;
+
+    }
+
+    .emergency {
+
+      background: red;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 50px;
+
+    }
+
+    footer {
+
+      background: #2563eb;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 20px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- LOGIN PAGE -->
+
+  <div id="loginPage">
+
+    <div class="login-box">
+
+      <h1>
+
+        🏥 Healthcare Finder
+
+      </h1>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter Username">
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter Password">
+
+      <button onclick="login()">
+
+        Login
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- MAIN WEBSITE -->
+
+  <div id="mainWebsite">
+
+    <nav>
+
+      <h1>
+        🏥 Healthcare Finder
+      </h1>
+
+      <div>
+
+        <a href="#">
+          Home
+        </a>
+
+        <a href="#">
+          Hospitals
+        </a>
+
+        <a href="#">
+          Emergency
+        </a>
+
+      </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <h2>
+
+        Affordable Healthcare Finder 🩺
+
+      </h2>
+
+      <p>
+
+        Find hospitals, treatment costs,
+        emergency support, appointments,
+        nearby hospitals and more.
+
+      </p>
+
+      <button onclick="findNearbyHospitals()">
+
+        📍 Nearby Hospitals
+
+      </button>
+
+      <button onclick="voiceSupport()">
+
+        🎤 Voice Guidance
+
+      </button>
+
+      <br><br>
+
+      <input
+        type="text"
+        id="hospitalSearch"
+        placeholder="Search Hospital or Treatment">
+
+      <button onclick="searchHospital()">
+
+        Search
+
+      </button>
+
+    </section>
+
+    <!-- HOSPITALS -->
+
+    <section>
+
+      <h2 class="section-title">
+
+        🏥 Ballari Hospitals
+
+      </h2>
+
+      <div
+        id="hospitalResults"
+        class="cards">
+
+      </div>
+
+    </section>
+
+    <!-- MEDICINE -->
+
+    <section class="medicine">
+
+      <h2 class="section-title">
+
+        💊 Medicine Availability
+
+      </h2>
+
+      <input
+        type="text"
+        id="medicineInput"
+        placeholder="Enter Medicine Name">
+
+      <button onclick="checkMedicine()">
+
+        Check Medicine
+
+      </button>
+
+      <p
+        id="medicineResult"
+        style="margin-top:20px;
+        color:green;
+        font-size:20px;">
+
+      </p>
+
+    </section>
+
+    <!-- EMERGENCY -->
+
+    <section class="emergency">
+
+      <h2>
+
+        🚑 Emergency Support
+
+      </h2>
+
+      <button onclick="callAmbulance()">
+
+        Ambulance
+
+      </button>
+
+      <button onclick="callEmergency()">
+
+        Emergency
+
+      </button>
+
+    </section>
+
+    <footer>
+
+      <h2>
+
+        Affordable Healthcare Finder
+
+      </h2>
+
+      <p>
+
+        Affordable healthcare for everyone 🌍
+
+      </p>
+
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const hospitals = [
+
+      {
+
+        name:
+          "S. R. Multi Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "4.1",
+
+        consultation:
+          "₹300–₹700",
+
+        treatments:
+          "CBC Blood Test ₹450, X-Ray ₹800, Ultrasound ₹2000, CT Scan ₹5000-₹8000, MRI ₹6000-₹15000, ICU ₹10000+, Delivery ₹40000+",
+
+        phone:
+          "08392256500"
+
+      },
+
+      {
+
+        name:
+          "Shree Navodaya Multi Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "3.4",
+
+        consultation:
+          "₹250–₹500",
+
+        treatments:
+          "Blood Test ₹300-₹1200, ECG ₹500, X-Ray ₹700, Ultrasound ₹1800, CT Scan ₹4500-₹7000, MRI ₹5500-₹12000",
+
+        phone:
+          "08579897989"
+
+      },
+
+      {
+
+        name:
+          "VOISE Multi-Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "3.3",
+
+        consultation:
+          "₹300–₹600",
+
+        treatments:
+          "CBC ₹450, ECG ₹500, X-Ray ₹800, CT Scan ₹5000-₹9000, MRI ₹6500-₹16000, Dialysis ₹2500",
+
+        phone:
+          "08392258888"
+
+      },
+
+      {
+
+        name:
+          "BALLARI Health City",
+
+        city:
+          "Ballari",
+
+        rating:
+          "3.3",
+
+        consultation:
+          "₹400–₹800",
+
+        treatments:
+          "Blood Test ₹500-₹2000, X-Ray ₹1000, Ultrasound ₹2500, CT Scan ₹6000-₹10000, MRI ₹7000-₹18000, ICU ₹12000+",
+
+        phone:
+          "8884489777"
+
+      },
+
+      {
+
+        name:
+          "Danamma Super Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "4.0",
+
+        consultation:
+          "₹300–₹700",
+
+        treatments:
+          "Blood Tests ₹400-₹1500, ECG ₹500, Ultrasound ₹2000, CT Scan ₹5000-₹9000, MRI ₹6000-₹14000",
+
+        phone:
+          "08392250000"
+
+      },
+
+      {
+
+        name:
+          "Sai Health Care Multi Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "4.9",
+
+        consultation:
+          "₹250–₹500",
+
+        treatments:
+          "CBC ₹400, X-Ray ₹700, Ultrasound ₹1500, CT Scan ₹4500-₹7500, MRI ₹5500-₹12000",
+
+        phone:
+          "08392251111"
+
+      },
+
+      {
+
+        name:
+          "Shruti Super Speciality Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "4.4",
+
+        consultation:
+          "₹300–₹600",
+
+        treatments:
+          "Blood Tests ₹400-₹1500, ECG ₹500, CT Scan ₹5000-₹8500, MRI ₹6000-₹15000, Dialysis ₹2500-₹4000",
+
+        phone:
+          "08392252222"
+
+      },
+
+      {
+
+        name:
+          "Aradhana Hospital",
+
+        city:
+          "Ballari",
+
+        rating:
+          "3.2",
+
+        consultation:
+          "₹250–₹500",
+
+        treatments:
+          "CBC ₹350, X-Ray ₹700, Ultrasound ₹1800, CT Scan ₹4500-₹7000, MRI ₹5500-₹12000",
+
+        phone:
+          "08392258888"
+
+      }
+
+    ];
+
+    function login() {
+
+      const username =
+        document.getElementById(
+          "username"
+        ).value;
+
+      const password =
+        document.getElementById(
+          "password"
+        ).value;
+
+      if (
+        username !== "" &&
+        password !== ""
+      ) {
+
+        document.getElementById(
+          "loginPage"
+        ).style.display = "none";
+
+        document.getElementById(
+          "mainWebsite"
+        ).style.display = "block";
+
+        voiceSupport();
+
+      }
+
+      else {
+
+        alert(
+          "Please enter login details"
+        );
+
+      }
+
+    }
+
+    function displayHospitals(data) {
+
+      const container =
+        document.getElementById(
+          "hospitalResults"
+        );
+
+      container.innerHTML = "";
+
+      if (data.length === 0) {
+
+        container.innerHTML =
+          "<h2>No Hospital Found</h2>";
+
+        return;
+
+      }
+
+      data.forEach(hospital => {
+
+        container.innerHTML += `
+
+          <div class="card">
+
+            <h3>
+
+              ${hospital.name}
+
+            </h3>
+
+            <p>
+
+              📍 ${hospital.city}
+
+            </p>
+
+            <p>
+
+              ⭐ Rating:
+              ${hospital.rating}
+
+            </p>
+
+            <p>
+
+              💰 Consultation:
+              ${hospital.consultation}
+
+            </p>
+
+            <p>
+
+              🩺 Treatments:
+              ${hospital.treatments}
+
+            </p>
+
+            <button onclick="openMap('${hospital.name}')">
+
+              Open Map
+
+            </button>
+
+            <button onclick="callHospital('${hospital.phone}')">
+
+              Call
+
+            </button>
+
+            <button onclick="bookAppointment()">
+
+              Appointment
+
+            </button>
+
+            <button onclick="shareWebsite()">
+
+              Share
+
+            </button>
+
+          </div>
+
+        `;
+
+      });
+
+    }
+
+    displayHospitals(hospitals);
+
+    function searchHospital() {
+
+      const search =
+        document.getElementById(
+          "hospitalSearch"
+        ).value.toLowerCase();
+
+      const filtered =
+        hospitals.filter(hospital =>
+
+          hospital.name
+          .toLowerCase()
+          .includes(search)
+
+          ||
+
+          hospital.treatments
+          .toLowerCase()
+          .includes(search)
+
+        );
+
+      displayHospitals(filtered);
+
+    }
+
+    function findNearbyHospitals() {
+
+      if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(
+
+          function() {
+
+            alert(
+              "📍 Nearby hospitals loaded successfully"
+            );
+
+            displayHospitals(hospitals);
+
+          }
+
+        );
+
+      }
+
+    }
+
+    function openMap(hospitalName) {
+
+      window.open(
+
+        `https://www.google.com/maps/search/${hospitalName}`,
+
+        "_blank"
+
+      );
+
+    }
+
+    function callHospital(phone) {
+
+      window.location.href =
+        "tel:" + phone;
+
+    }
+
+    function bookAppointment() {
+
+      alert(
+        "✅ Appointment booked successfully"
+      );
+
+    }
+
+    function shareWebsite() {
+
+      navigator.share({
+
+        title:
+          "Healthcare Finder",
+
+        text:
+          "Find affordable hospitals nearby",
+
+        url:
+          window.location.href
+
+      });
+
+    }
+
+    function voiceSupport() {
+
+      const speech =
+        new SpeechSynthesisUtterance(
+
+          "Welcome to Affordable Healthcare Finder. " +
+
+          "Use the search bar to search hospitals or treatments. " +
+
+          "Click nearby hospitals to load nearby hospitals. " +
+
+          "Use open map button for location. " +
+
+          "Use call button to contact hospitals. " +
+
+          "Use appointment button to book appointments."
+
+        );
+
+      speech.lang = "en-US";
+
+      window.speechSynthesis.speak(speech);
+
+    }
+
+    function checkMedicine() {
+
+      const medicine =
+        document.getElementById(
+          "medicineInput"
+        ).value;
+
+      document.getElementById(
+        "medicineResult"
+      ).innerHTML =
+
+        "✅ " +
+        medicine +
+        " is available nearby.";
+
+    }
+
+    function callAmbulance() {
+
+      window.location.href =
+        "tel:108";
+
+    }
+
+    function callEmergency() {
+
+      window.location.href =
+        "tel:102";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
