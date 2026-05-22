@@ -34,6 +34,7 @@
 
     nav h1{
       color:#2563eb;
+      font-size:32px;
     }
 
     .hero{
@@ -58,6 +59,7 @@
       border-radius:10px;
       border:1px solid gray;
       margin-top:15px;
+      font-size:16px;
     }
 
     button{
@@ -139,7 +141,7 @@
   <section class="hero">
 
     <h2>
-      Affordable Healthcare Finder 🩺
+      Find Affordable Hospitals 🩺
     </h2>
 
     <p>
@@ -195,8 +197,6 @@
 
   </section>
 
-  <!-- RESULTS -->
-
   <div
     id="hospitalResults"
     class="cards">
@@ -242,7 +242,7 @@
           "Ultrasound - ₹2000",
           "CT Scan - ₹5000–₹8000",
           "MRI Scan - ₹6000–₹15000",
-          "ICU Per Day - ₹10000+",
+          "ICU/Day - ₹10000+",
           "Normal Delivery - ₹40000+",
           "C-Section - ₹75000+"
 
@@ -275,7 +275,7 @@
           "Ultrasound - ₹1800",
           "CT Scan - ₹4500–₹7000",
           "MRI Scan - ₹5500–₹12000",
-          "ICU Per Day - ₹8000+"
+          "ICU/Day - ₹8000+"
 
         ],
 
@@ -306,7 +306,7 @@
           "CT Scan - ₹5000–₹9000",
           "MRI Scan - ₹6500–₹16000",
           "Dialysis - ₹2500",
-          "ICU Per Day - ₹10000–₹18000"
+          "ICU/Day - ₹10000–₹18000"
 
         ],
 
@@ -337,7 +337,7 @@
           "CT Scan - ₹6000–₹10000",
           "MRI Scan - ₹7000–₹18000",
           "Angiography - ₹25000+",
-          "ICU Per Day - ₹12000–₹25000"
+          "ICU/Day - ₹12000–₹25000"
 
         ],
 
@@ -437,113 +437,184 @@
 
       }
 
-      const filtered =
-        hospitals.filter(hospital =>
+      let found = false;
 
+      hospitals.forEach(hospital => {
+
+        if(
           hospital.name
           .toLowerCase()
           .includes(search)
+        ){
 
-          ||
+          found = true;
 
-          hospital.treatments.some(
+          let treatmentList = "";
 
-            treatment =>
+          hospital.treatments.forEach(item => {
 
-            treatment
-            .toLowerCase()
-            .includes(search)
+            treatmentList +=
+              `<li>${item}</li>`;
 
-          )
+          });
 
-        );
+          container.innerHTML += `
 
-      if(filtered.length === 0){
+            <div class="card">
+
+              <h3>
+                ${hospital.name}
+              </h3>
+
+              <p>
+                📍 ${hospital.city}
+              </p>
+
+              <p>
+                ⭐ Rating:
+                ${hospital.rating}
+              </p>
+
+              <p>
+                💰 Consultation:
+                ${hospital.consultation}
+              </p>
+
+              <p>
+                🩺 All Treatments:
+              </p>
+
+              <ul>
+                ${treatmentList}
+              </ul>
+
+              <button onclick="openMap('${hospital.name}')">
+
+                📍 Open Map
+
+              </button>
+
+              <button onclick="callHospital('${hospital.phone}')">
+
+                📞 Call
+
+              </button>
+
+              <button onclick="callAmbulance()">
+
+                🚑 Ambulance
+
+              </button>
+
+              <button onclick="callEmergency()">
+
+                🆘 Emergency
+
+              </button>
+
+            </div>
+
+          `;
+
+        }
+
+        else{
+
+          const matchedTreatments =
+            hospital.treatments.filter(
+
+              treatment =>
+
+              treatment
+              .toLowerCase()
+              .includes(search)
+
+            );
+
+          if(matchedTreatments.length > 0){
+
+            found = true;
+
+            let treatmentList = "";
+
+            matchedTreatments.forEach(item => {
+
+              treatmentList +=
+                `<li>${item}</li>`;
+
+            });
+
+            container.innerHTML += `
+
+              <div class="card">
+
+                <h3>
+                  ${hospital.name}
+                </h3>
+
+                <p>
+                  📍 ${hospital.city}
+                </p>
+
+                <p>
+                  ⭐ Rating:
+                  ${hospital.rating}
+                </p>
+
+                <p>
+                  💰 Consultation:
+                  ${hospital.consultation}
+                </p>
+
+                <p>
+                  🩺 Matching Treatment:
+                </p>
+
+                <ul>
+                  ${treatmentList}
+                </ul>
+
+                <button onclick="openMap('${hospital.name}')">
+
+                  📍 Open Map
+
+                </button>
+
+                <button onclick="callHospital('${hospital.phone}')">
+
+                  📞 Call
+
+                </button>
+
+                <button onclick="callAmbulance()">
+
+                  🚑 Ambulance
+
+                </button>
+
+                <button onclick="callEmergency()">
+
+                  🆘 Emergency
+
+                </button>
+
+              </div>
+
+            `;
+
+          }
+
+        }
+
+      });
+
+      if(!found){
 
         container.innerHTML =
 
           "<h2>No Hospitals Found</h2>";
 
-        return;
-
       }
-
-      filtered.forEach(hospital => {
-
-        let treatmentList = "";
-
-        hospital.treatments.forEach(item => {
-
-          treatmentList +=
-            `<li>${item}</li>`;
-
-        });
-
-        container.innerHTML += `
-
-          <div class="card">
-
-            <h3>
-
-              ${hospital.name}
-
-            </h3>
-
-            <p>
-
-              📍 ${hospital.city}
-
-            </p>
-
-            <p>
-
-              ⭐ Rating:
-              ${hospital.rating}
-
-            </p>
-
-            <p>
-
-              💰 Consultation:
-              ${hospital.consultation}
-
-            </p>
-
-            <p>
-
-              🩺 Treatments & Costs:
-
-            </p>
-
-            <ul>
-
-              ${treatmentList}
-
-            </ul>
-
-            <button onclick="openMap('${hospital.name}')">
-
-              📍 Open Map
-
-            </button>
-
-            <button onclick="callHospital('${hospital.phone}')">
-
-              📞 Call
-
-            </button>
-
-            <button onclick="bookAppointment('${hospital.name}')">
-
-              📅 Appointment
-
-            </button>
-
-          </div>
-
-        `;
-
-      });
 
     }
 
@@ -566,23 +637,17 @@
 
     }
 
-    function bookAppointment(hospital){
+    function callAmbulance(){
 
-      const confirmBooking =
-        confirm(
+      window.location.href =
+        "tel:108";
 
-          "Do you want to book appointment at " +
-          hospital + " ?"
+    }
 
-        );
+    function callEmergency(){
 
-      if(confirmBooking){
-
-        alert(
-          "✅ Appointment booked successfully"
-        );
-
-      }
+      window.location.href =
+        "tel:112";
 
     }
 
@@ -604,17 +669,17 @@
 
           "Welcome to Affordable Healthcare Finder. " +
 
-          "To use this application, first select your language. " +
+          "This application helps you search hospitals and treatments. " +
 
-          "Then type hospital name or treatment name in the search box. " +
+          "Type hospital name to see all treatments and costs. " +
 
-          "Click search button to view hospitals, treatments and costs. " +
+          "Type treatment name to see hospitals providing that treatment. " +
 
-          "Use open map button for hospital location. " +
+          "Use map button for location. " +
 
           "Use call button to contact hospital. " +
 
-          "Use appointment button for booking appointments.";
+          "Use ambulance and emergency buttons during emergency situations.";
 
       }
 
@@ -624,11 +689,9 @@
 
           "ಅಫೋರ್ಡಬಲ್ ಹೆಲ್ತ್ ಕೇರ್ ಫೈಂಡರ್ ಗೆ ಸ್ವಾಗತ. " +
 
-          "ಮೊದಲು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. " +
-
           "ಆಸ್ಪತ್ರೆ ಅಥವಾ ಚಿಕಿತ್ಸೆಯ ಹೆಸರನ್ನು ಹುಡುಕಿ. " +
 
-          "ಸರ್ಚ್ ಬಟನ್ ಒತ್ತಿ ಆಸ್ಪತ್ರೆ ಮತ್ತು ಚಿಕಿತ್ಸೆಯ ವಿವರಗಳನ್ನು ನೋಡಿ.";
+          "ಮ್ಯಾಪ್ ಮತ್ತು ಕಾಲ್ ಬಟನ್ ಬಳಸಿ ಆಸ್ಪತ್ರೆಯನ್ನು ಸಂಪರ್ಕಿಸಬಹುದು.";
 
       }
 
@@ -638,11 +701,9 @@
 
           "अफोर्डेबल हेल्थ केयर फाइंडर में आपका स्वागत है। " +
 
-          "पहले भाषा चुनें। " +
+          "अस्पताल या इलाज का नाम खोजें। " +
 
-          "फिर अस्पताल या इलाज का नाम खोजें। " +
-
-          "सर्च बटन दबाकर अस्पताल और इलाज की जानकारी देखें।";
+          "मैप और कॉल बटन का उपयोग करें।";
 
       }
 
@@ -652,11 +713,9 @@
 
           "అఫోర్డబుల్ హెల్త్ కేర్ ఫైండర్ కు స్వాగతం. " +
 
-          "ముందుగా భాషను ఎంచుకోండి. " +
+          "హాస్పిటల్ లేదా ట్రీట్మెంట్ పేరు సెర్చ్ చేయండి. " +
 
-          "తర్వాత హాస్పిటల్ లేదా ట్రీట్మెంట్ పేరు సెర్చ్ చేయండి. " +
-
-          "సెర్చ్ బటన్ నొక్కి హాస్పిటల్ వివరాలు చూడండి.";
+          "మ్యాప్ మరియు కాల్ బటన్లను ఉపయోగించండి.";
 
       }
 
