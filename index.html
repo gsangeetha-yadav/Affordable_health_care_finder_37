@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,255 +14,107 @@
 
   <style>
 
-    * {
-
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
     }
 
-    body {
-
-      background:
-        linear-gradient(
-          to right,
-          #dbeafe,
-          #ffffff,
-          #dcfce7
-        );
-
+    body{
+      background:linear-gradient(to right,#dbeafe,#ffffff,#dcfce7);
     }
 
-    /* LOGIN */
-
-    #loginPage {
-
-      height: 100vh;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
+    nav{
+      background:white;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 2px 10px gray;
+      position:sticky;
+      top:0;
     }
 
-    .login-box {
-
-      background: white;
-
-      padding: 40px;
-
-      width: 350px;
-
-      border-radius: 20px;
-
-      box-shadow: 0 5px 15px gray;
-
-      text-align: center;
-
+    nav h1{
+      color:#2563eb;
     }
 
-    .login-box h1 {
-
-      color: #2563eb;
-
-      margin-bottom: 20px;
-
+    .hero{
+      text-align:center;
+      padding:50px 20px;
     }
 
-    input {
-
-      width: 100%;
-
-      padding: 12px;
-
-      margin-top: 15px;
-
-      border-radius: 10px;
-
-      border: 1px solid gray;
-
+    .hero h2{
+      color:#2563eb;
+      font-size:45px;
     }
 
-    button {
-
-      padding: 12px 20px;
-
-      border: none;
-
-      border-radius: 10px;
-
-      background: #2563eb;
-
-      color: white;
-
-      cursor: pointer;
-
-      margin-top: 15px;
-
-      font-size: 16px;
-
+    .hero p{
+      margin-top:15px;
+      color:gray;
+      font-size:20px;
     }
 
-    button:hover {
-
-      background: #1d4ed8;
-
+    input{
+      width:300px;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid gray;
+      margin-top:15px;
     }
 
-    /* MAIN WEBSITE */
-
-    #mainWebsite {
-
-      display: none;
-
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:10px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      margin:10px;
+      font-size:15px;
     }
 
-    nav {
-
-      background: white;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      padding: 20px;
-
-      box-shadow: 0 2px 10px gray;
-
-      position: sticky;
-
-      top: 0;
-
+    button:hover{
+      background:#1d4ed8;
     }
 
-    nav h1 {
-
-      color: #2563eb;
-
+    .cards{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+      padding:30px;
     }
 
-    nav a {
-
-      text-decoration: none;
-
-      margin-left: 20px;
-
-      color: black;
-
-      font-weight: bold;
-
+    .card{
+      width:360px;
+      background:white;
+      padding:20px;
+      border-radius:20px;
+      box-shadow:0 5px 10px gray;
     }
 
-    .hero {
-
-      text-align: center;
-
-      padding: 60px 20px;
-
+    .card h3{
+      color:green;
+      margin-bottom:10px;
     }
 
-    .hero h2 {
-
-      font-size: 50px;
-
-      color: #2563eb;
-
+    .card p{
+      margin-top:8px;
+      line-height:1.5;
     }
 
-    .hero p {
-
-      margin-top: 20px;
-
-      font-size: 20px;
-
-      color: gray;
-
+    .emergency{
+      background:red;
+      color:white;
+      text-align:center;
+      padding:40px;
     }
 
-    .section-title {
-
-      text-align: center;
-
-      margin-top: 40px;
-
-      color: #2563eb;
-
-      font-size: 40px;
-
-    }
-
-    .cards {
-
-      display: flex;
-
-      justify-content: center;
-
-      flex-wrap: wrap;
-
-      gap: 20px;
-
-      padding: 30px;
-
-    }
-
-    .card {
-
-      background: white;
-
-      width: 370px;
-
-      padding: 20px;
-
-      border-radius: 20px;
-
-      box-shadow: 0 5px 10px gray;
-
-    }
-
-    .card h3 {
-
-      color: green;
-
-      margin-bottom: 10px;
-
-    }
-
-    .medicine {
-
-      text-align: center;
-
-      padding: 50px;
-
-    }
-
-    .emergency {
-
-      background: red;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 50px;
-
-    }
-
-    footer {
-
-      background: #2563eb;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 20px;
-
+    footer{
+      background:#2563eb;
+      color:white;
+      text-align:center;
+      padding:20px;
     }
 
   </style>
@@ -271,426 +123,299 @@
 
 <body>
 
-  <!-- LOGIN PAGE -->
+  <nav>
 
-  <div id="loginPage">
+    <h1>
+      🏥 Affordable Healthcare Finder
+    </h1>
 
-    <div class="login-box">
+  </nav>
 
-      <h1>
+  <!-- HERO -->
 
-        🏥 Healthcare Finder
+  <section class="hero">
 
-      </h1>
+    <h2>
+      Affordable Healthcare Finder 🩺
+    </h2>
 
-      <input
-        type="text"
-        id="username"
-        placeholder="Enter Username">
+    <p>
+      Search hospitals, CT Scan,
+      MRI, emergency support and more.
+    </p>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter Password">
+    <button onclick="findNearbyHospitals()">
 
-      <button onclick="login()">
+      📍 Nearby Hospitals
 
-        Login
+    </button>
 
-      </button>
+    <button onclick="voiceSupport()">
 
-    </div>
+      🎤 Voice Guidance
+
+    </button>
+
+    <br>
+
+    <input
+      type="text"
+      id="hospitalSearch"
+      placeholder="Search Hospital">
+
+    <button onclick="searchHospital()">
+
+      Search
+
+    </button>
+
+  </section>
+
+  <!-- HOSPITAL RESULTS -->
+
+  <div
+    id="hospitalResults"
+    class="cards">
 
   </div>
 
-  <!-- MAIN WEBSITE -->
+  <!-- MEDICINE -->
 
-  <div id="mainWebsite">
+  <section style="text-align:center;padding:40px;">
 
-    <nav>
+    <h2 style="color:#2563eb;">
 
-      <h1>
-        🏥 Healthcare Finder
-      </h1>
+      💊 Medicine Availability
 
-      <div>
+    </h2>
 
-        <a href="#">
-          Home
-        </a>
+    <input
+      type="text"
+      id="medicineInput"
+      placeholder="Enter Medicine Name">
 
-        <a href="#">
-          Hospitals
-        </a>
+    <button onclick="checkMedicine()">
 
-        <a href="#">
-          Emergency
-        </a>
+      Check Medicine
 
-      </div>
+    </button>
 
-    </nav>
+    <p
+      id="medicineResult"
+      style="margin-top:20px;
+      color:green;
+      font-size:20px;">
 
-    <!-- HERO -->
+    </p>
 
-    <section class="hero">
+  </section>
 
-      <h2>
+  <!-- EMERGENCY -->
 
-        Affordable Healthcare Finder 🩺
+  <section class="emergency">
 
-      </h2>
+    <h2>
+      🚑 Emergency Support
+    </h2>
 
-      <p>
+    <button onclick="callAmbulance()">
 
-        Find hospitals, treatment costs,
-        emergency support, appointments,
-        nearby hospitals and more.
+      Ambulance
 
-      </p>
+    </button>
 
-      <button onclick="findNearbyHospitals()">
+    <button onclick="callEmergency()">
 
-        📍 Nearby Hospitals
+      Emergency
 
-      </button>
+    </button>
 
-      <button onclick="voiceSupport()">
+  </section>
 
-        🎤 Voice Guidance
+  <footer>
 
-      </button>
+    <h2>
+      Affordable Healthcare Finder
+    </h2>
 
-      <br><br>
+    <p>
+      Affordable healthcare for everyone 🌍
+    </p>
 
-      <input
-        type="text"
-        id="hospitalSearch"
-        placeholder="Search Hospital or Treatment">
-
-      <button onclick="searchHospital()">
-
-        Search
-
-      </button>
-
-    </section>
-
-    <!-- HOSPITALS -->
-
-    <section>
-
-      <h2 class="section-title">
-
-        🏥 Ballari Hospitals
-
-      </h2>
-
-      <div
-        id="hospitalResults"
-        class="cards">
-
-      </div>
-
-    </section>
-
-    <!-- MEDICINE -->
-
-    <section class="medicine">
-
-      <h2 class="section-title">
-
-        💊 Medicine Availability
-
-      </h2>
-
-      <input
-        type="text"
-        id="medicineInput"
-        placeholder="Enter Medicine Name">
-
-      <button onclick="checkMedicine()">
-
-        Check Medicine
-
-      </button>
-
-      <p
-        id="medicineResult"
-        style="margin-top:20px;
-        color:green;
-        font-size:20px;">
-
-      </p>
-
-    </section>
-
-    <!-- EMERGENCY -->
-
-    <section class="emergency">
-
-      <h2>
-
-        🚑 Emergency Support
-
-      </h2>
-
-      <button onclick="callAmbulance()">
-
-        Ambulance
-
-      </button>
-
-      <button onclick="callEmergency()">
-
-        Emergency
-
-      </button>
-
-    </section>
-
-    <footer>
-
-      <h2>
-
-        Affordable Healthcare Finder
-
-      </h2>
-
-      <p>
-
-        Affordable healthcare for everyone 🌍
-
-      </p>
-
-    </footer>
-
-  </div>
-
-  <!-- JAVASCRIPT -->
+  </footer>
 
   <script>
 
     const hospitals = [
 
       {
-
-        name:
-          "S. R. Multi Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "4.1",
-
-        consultation:
-          "₹300–₹700",
-
-        treatments:
-          "CBC Blood Test ₹450, X-Ray ₹800, Ultrasound ₹2000, CT Scan ₹5000-₹8000, MRI ₹6000-₹15000, ICU ₹10000+, Delivery ₹40000+",
-
-        phone:
-          "08392256500"
-
+        name: "S. R. Multi Speciality Hospital",
+        city: "Ballari",
+        rating: "4.1",
+        consultation: "₹300–₹700",
+        ctScan: "₹5,000–₹8,000",
+        mri: "₹6,000–₹15,000",
+        emergency: "Available",
+        phone: "08392256500"
       },
 
       {
-
-        name:
-          "Shree Navodaya Multi Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "3.4",
-
-        consultation:
-          "₹250–₹500",
-
-        treatments:
-          "Blood Test ₹300-₹1200, ECG ₹500, X-Ray ₹700, Ultrasound ₹1800, CT Scan ₹4500-₹7000, MRI ₹5500-₹12000",
-
-        phone:
-          "08579897989"
-
+        name: "Shree Navodaya Multi Speciality Hospital",
+        city: "Ballari",
+        rating: "3.4",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,000",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08579897989"
       },
 
       {
-
-        name:
-          "VOISE Multi-Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "3.3",
-
-        consultation:
-          "₹300–₹600",
-
-        treatments:
-          "CBC ₹450, ECG ₹500, X-Ray ₹800, CT Scan ₹5000-₹9000, MRI ₹6500-₹16000, Dialysis ₹2500",
-
-        phone:
-          "08392258888"
-
+        name: "VOISE Multi-Speciality Hospital",
+        city: "Ballari",
+        rating: "3.3",
+        consultation: "₹300–₹600",
+        ctScan: "₹5,000–₹9,000",
+        mri: "₹6,500–₹16,000",
+        emergency: "Available",
+        phone: "08392258888"
       },
 
       {
-
-        name:
-          "BALLARI Health City",
-
-        city:
-          "Ballari",
-
-        rating:
-          "3.3",
-
-        consultation:
-          "₹400–₹800",
-
-        treatments:
-          "Blood Test ₹500-₹2000, X-Ray ₹1000, Ultrasound ₹2500, CT Scan ₹6000-₹10000, MRI ₹7000-₹18000, ICU ₹12000+",
-
-        phone:
-          "8884489777"
-
+        name: "BALLARI Health City",
+        city: "Ballari",
+        rating: "3.3",
+        consultation: "₹400–₹800",
+        ctScan: "₹6,000–₹10,000",
+        mri: "₹7,000–₹18,000",
+        emergency: "Available",
+        phone: "8884489777"
       },
 
       {
-
-        name:
-          "Danamma Super Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "4.0",
-
-        consultation:
-          "₹300–₹700",
-
-        treatments:
-          "Blood Tests ₹400-₹1500, ECG ₹500, Ultrasound ₹2000, CT Scan ₹5000-₹9000, MRI ₹6000-₹14000",
-
-        phone:
-          "08392250000"
-
+        name: "Danamma Super Speciality Hospital",
+        city: "Ballari",
+        rating: "4.0",
+        consultation: "₹300–₹700",
+        ctScan: "₹5,000–₹9,000",
+        mri: "₹6,000–₹14,000",
+        emergency: "Available",
+        phone: "08392250000"
       },
 
       {
-
-        name:
-          "Sai Health Care Multi Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "4.9",
-
-        consultation:
-          "₹250–₹500",
-
-        treatments:
-          "CBC ₹400, X-Ray ₹700, Ultrasound ₹1500, CT Scan ₹4500-₹7500, MRI ₹5500-₹12000",
-
-        phone:
-          "08392251111"
-
+        name: "Sai Health Care Multi Speciality Hospital",
+        city: "Ballari",
+        rating: "4.9",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,500",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08392251111"
       },
 
       {
-
-        name:
-          "Shruti Super Speciality Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "4.4",
-
-        consultation:
-          "₹300–₹600",
-
-        treatments:
-          "Blood Tests ₹400-₹1500, ECG ₹500, CT Scan ₹5000-₹8500, MRI ₹6000-₹15000, Dialysis ₹2500-₹4000",
-
-        phone:
-          "08392252222"
-
+        name: "Shruti Super Speciality Hospital",
+        city: "Ballari",
+        rating: "4.4",
+        consultation: "₹300–₹600",
+        ctScan: "₹5,000–₹8,500",
+        mri: "₹6,000–₹15,000",
+        emergency: "Available",
+        phone: "08392252222"
       },
 
       {
+        name: "Aradhana Hospital",
+        city: "Ballari",
+        rating: "3.2",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,000",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08392258888"
+      },
 
-        name:
-          "Aradhana Hospital",
+      {
+        name: "Adarsh Heart Care Hospital",
+        city: "Ballari",
+        rating: "3.4",
+        consultation: "₹600–₹1,200",
+        ctScan: "₹25,000–₹40,000",
+        mri: "₹1.8–₹3 lakh",
+        emergency: "Available",
+        phone: "08392253333"
+      },
 
-        city:
-          "Ballari",
+      {
+        name: "K S M Hospital",
+        city: "Ballari",
+        rating: "4.6",
+        consultation: "₹300",
+        ctScan: "₹5,000–₹8,000",
+        mri: "₹6,000–₹14,000",
+        emergency: "Available",
+        phone: "08392254444"
+      },
 
-        rating:
-          "3.2",
+      {
+        name: "ANUSHKA HOSPITAL BALLARI",
+        city: "Ballari",
+        rating: "3.0",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,500",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08392255555"
+      },
 
-        consultation:
-          "₹250–₹500",
+      {
+        name: "SK Panduranga Rao Hospital",
+        city: "Ballari",
+        rating: "3.7",
+        consultation: "₹300–₹700",
+        ctScan: "₹5,000–₹8,500",
+        mri: "₹6,000–₹15,000",
+        emergency: "Available",
+        phone: "08392256666"
+      },
 
-        treatments:
-          "CBC ₹350, X-Ray ₹700, Ultrasound ₹1800, CT Scan ₹4500-₹7000, MRI ₹5500-₹12000",
+      {
+        name: "Svastha Multi speciality hospital",
+        city: "Ballari",
+        rating: "3.5",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,500",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08392257777"
+      },
 
-        phone:
-          "08392258888"
+      {
+        name: "B K S Hospital",
+        city: "Ballari",
+        rating: "4.4",
+        consultation: "₹400–₹800",
+        ctScan: "₹6,000–₹10,000",
+        mri: "₹7,000–₹18,000",
+        emergency: "Available",
+        phone: "08392256500"
+      },
 
+      {
+        name: "Janahitha Multi Speciality Hospital",
+        city: "Ballari",
+        rating: "3.2",
+        consultation: "₹250–₹500",
+        ctScan: "₹4,500–₹7,500",
+        mri: "₹5,500–₹12,000",
+        emergency: "Available",
+        phone: "08392259999"
       }
 
     ];
 
-    function login() {
-
-      const username =
-        document.getElementById(
-          "username"
-        ).value;
-
-      const password =
-        document.getElementById(
-          "password"
-        ).value;
-
-      if (
-        username !== "" &&
-        password !== ""
-      ) {
-
-        document.getElementById(
-          "loginPage"
-        ).style.display = "none";
-
-        document.getElementById(
-          "mainWebsite"
-        ).style.display = "block";
-
-        voiceSupport();
-
-      }
-
-      else {
-
-        alert(
-          "Please enter login details"
-        );
-
-      }
-
-    }
-
-    function displayHospitals(data) {
+    function displayHospitals(data){
 
       const container =
         document.getElementById(
@@ -699,15 +424,6 @@
 
       container.innerHTML = "";
 
-      if (data.length === 0) {
-
-        container.innerHTML =
-          "<h2>No Hospital Found</h2>";
-
-        return;
-
-      }
-
       data.forEach(hospital => {
 
         container.innerHTML += `
@@ -715,61 +431,59 @@
           <div class="card">
 
             <h3>
-
               ${hospital.name}
-
             </h3>
 
             <p>
-
               📍 ${hospital.city}
-
             </p>
 
             <p>
-
               ⭐ Rating:
               ${hospital.rating}
-
             </p>
 
             <p>
-
               💰 Consultation:
               ${hospital.consultation}
-
             </p>
 
             <p>
-
-              🩺 Treatments:
-              ${hospital.treatments}
-
+              🧪 CT Scan:
+              ${hospital.ctScan}
             </p>
 
-            <button onclick="openMap('${hospital.name}')">
+            <p>
+              🧠 MRI:
+              ${hospital.mri}
+            </p>
 
-              Open Map
+            <p>
+              🚑 Emergency:
+              ${hospital.emergency}
+            </p>
 
-            </button>
+            <div style="margin-top:15px;">
 
-            <button onclick="callHospital('${hospital.phone}')">
+              <button onclick="openMap('${hospital.name}')">
 
-              Call
+                Open Map
 
-            </button>
+              </button>
 
-            <button onclick="bookAppointment()">
+              <button onclick="callHospital('${hospital.phone}')">
 
-              Appointment
+                Call
 
-            </button>
+              </button>
 
-            <button onclick="shareWebsite()">
+              <button onclick="bookAppointment('${hospital.name}')">
 
-              Share
+                Appointment
 
-            </button>
+              </button>
+
+            </div>
 
           </div>
 
@@ -781,7 +495,7 @@
 
     displayHospitals(hospitals);
 
-    function searchHospital() {
+    function searchHospital(){
 
       const search =
         document.getElementById(
@@ -795,31 +509,41 @@
           .toLowerCase()
           .includes(search)
 
-          ||
-
-          hospital.treatments
-          .toLowerCase()
-          .includes(search)
-
         );
+
+      if(filtered.length === 0){
+
+        alert(
+          "No hospitals found"
+        );
+
+      }
 
       displayHospitals(filtered);
 
     }
 
-    function findNearbyHospitals() {
+    function findNearbyHospitals(){
 
-      if (navigator.geolocation) {
+      if(navigator.geolocation){
 
         navigator.geolocation.getCurrentPosition(
 
-          function() {
+          function(){
 
             alert(
-              "📍 Nearby hospitals loaded successfully"
+              "📍 Nearby Ballari hospitals loaded successfully"
             );
 
             displayHospitals(hospitals);
+
+          },
+
+          function(){
+
+            alert(
+              "Please allow location access"
+            );
 
           }
 
@@ -829,11 +553,11 @@
 
     }
 
-    function openMap(hospitalName) {
+    function openMap(hospitalName){
 
       window.open(
 
-        `https://www.google.com/maps/search/${hospitalName}`,
+        `https://www.google.com/maps/search/${hospitalName}+Ballari`,
 
         "_blank"
 
@@ -841,54 +565,25 @@
 
     }
 
-    function callHospital(phone) {
+    function callHospital(phone){
 
       window.location.href =
         "tel:" + phone;
 
     }
 
-    function bookAppointment() {
-
-      alert(
-        "✅ Appointment booked successfully"
-      );
-
-    }
-
-    function shareWebsite() {
-
-      navigator.share({
-
-        title:
-          "Healthcare Finder",
-
-        text:
-          "Find affordable hospitals nearby",
-
-        url:
-          window.location.href
-
-      });
-
-    }
-
-    function voiceSupport() {
+    function voiceSupport(){
 
       const speech =
         new SpeechSynthesisUtterance(
 
           "Welcome to Affordable Healthcare Finder. " +
 
-          "Use the search bar to search hospitals or treatments. " +
+          "This application helps users find nearby hospitals in Ballari, " +
 
-          "Click nearby hospitals to load nearby hospitals. " +
+          "view consultation fees, CT scan prices, MRI prices, " +
 
-          "Use open map button for location. " +
-
-          "Use call button to contact hospitals. " +
-
-          "Use appointment button to book appointments."
+          "emergency support and map navigation."
 
         );
 
@@ -898,7 +593,7 @@
 
     }
 
-    function checkMedicine() {
+    function checkMedicine(){
 
       const medicine =
         document.getElementById(
@@ -915,14 +610,34 @@
 
     }
 
-    function callAmbulance() {
+    function bookAppointment(hospital){
+
+      const confirmBooking =
+        confirm(
+
+          "Do you want to book appointment at " +
+          hospital + " ?"
+
+        );
+
+      if(confirmBooking){
+
+        alert(
+          "✅ Appointment booked successfully"
+        );
+
+      }
+
+    }
+
+    function callAmbulance(){
 
       window.location.href =
         "tel:108";
 
     }
 
-    function callEmergency() {
+    function callEmergency(){
 
       window.location.href =
         "tel:102";
