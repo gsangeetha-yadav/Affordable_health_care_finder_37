@@ -5,12 +5,9 @@
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>
-    Affordable Healthcare Finder
-  </title>
+  <title>Affordable Healthcare Finder</title>
 
   <style>
 
@@ -29,33 +26,33 @@
       background:white;
       padding:20px;
       text-align:center;
-      box-shadow:0 2px 10px gray;
+      box-shadow:0 2px 10px rgba(0,0,0,0.2);
     }
 
     nav h1{
       color:#2563eb;
-      font-size:32px;
+      font-size:34px;
     }
 
     .hero{
       text-align:center;
-      padding:50px 20px;
+      padding:40px 20px;
     }
 
     .hero h2{
       color:#2563eb;
-      font-size:45px;
+      font-size:40px;
     }
 
     .hero p{
-      margin-top:15px;
+      margin-top:10px;
       color:gray;
-      font-size:20px;
+      font-size:18px;
     }
 
     input,select{
-      width:320px;
-      padding:12px;
+      width:340px;
+      padding:14px;
       border-radius:10px;
       border:1px solid gray;
       margin-top:15px;
@@ -63,13 +60,13 @@
     }
 
     button{
-      padding:12px 20px;
+      padding:12px 18px;
       border:none;
       border-radius:10px;
       background:#2563eb;
       color:white;
+      margin:8px;
       cursor:pointer;
-      margin:10px;
       font-size:15px;
     }
 
@@ -77,20 +74,20 @@
       background:#1d4ed8;
     }
 
-    .cards{
-      display:flex;
+    #results{
+      display:none;
+      padding:30px;
       flex-wrap:wrap;
       justify-content:center;
       gap:20px;
-      padding:30px;
     }
 
     .card{
-      width:400px;
+      width:420px;
       background:white;
       padding:20px;
       border-radius:20px;
-      box-shadow:0 5px 10px gray;
+      box-shadow:0 5px 10px rgba(0,0,0,0.2);
     }
 
     .card h3{
@@ -103,13 +100,11 @@
       line-height:1.6;
     }
 
-    ul{
-      margin-left:20px;
+    .treatment{
+      background:#eff6ff;
+      padding:10px;
+      border-radius:10px;
       margin-top:10px;
-    }
-
-    li{
-      margin-top:5px;
     }
 
     footer{
@@ -118,10 +113,6 @@
       text-align:center;
       padding:20px;
       margin-top:40px;
-    }
-
-    #hospitalResults{
-      display:none;
     }
 
   </style>
@@ -141,11 +132,11 @@
   <section class="hero">
 
     <h2>
-      Find Affordable Hospitals 🩺
+      Find Hospitals & Treatments 🩺
     </h2>
 
     <p>
-      Search Hospital Name or Treatment
+      Search Hospital Name
     </p>
 
     <select id="language">
@@ -170,7 +161,7 @@
 
     <br>
 
-    <button onclick="voiceSupport()">
+    <button onclick="startVoice()">
 
       🎤 Start Voice Guidance
 
@@ -178,7 +169,7 @@
 
     <button onclick="stopVoice()">
 
-      ⛔ Stop Voice Guidance
+      ⛔ Stop Voice
 
     </button>
 
@@ -186,22 +177,20 @@
 
     <input
       type="text"
-      id="hospitalSearch"
-      placeholder="Search Hospital or Treatment">
+      id="searchInput"
+      placeholder="Enter Hospital Name">
+
+    <br>
 
     <button onclick="searchHospital()">
 
-      🔍 Search
+      🔍 Search Hospital
 
     </button>
 
   </section>
 
-  <div
-    id="hospitalResults"
-    class="cards">
-
-  </div>
+  <div id="results"></div>
 
   <footer>
 
@@ -232,24 +221,22 @@
         rating:
           "4.1",
 
-        consultation:
-          "₹300–₹700",
+        phone:
+          "7090333387",
 
         treatments:[
 
-          "CBC Blood Test - ₹450",
-          "X-Ray - ₹800",
-          "Ultrasound - ₹2000",
-          "CT Scan - ₹5000–₹8000",
-          "MRI Scan - ₹6000–₹15000",
-          "ICU/Day - ₹10000+",
-          "Normal Delivery - ₹40000+",
-          "C-Section - ₹75000+"
+          ["Consultation","₹300–₹700"],
+          ["CBC Blood Test","₹450"],
+          ["X-Ray","₹800"],
+          ["Ultrasound","₹2000"],
+          ["CT Scan","₹5000–₹8000"],
+          ["MRI Scan","₹6000–₹15000"],
+          ["ICU/Day","₹10000+"],
+          ["Normal Delivery","₹40000+"],
+          ["C-Section","₹75000+"]
 
-        ],
-
-        phone:
-          "08392256500"
+        ]
 
       },
 
@@ -262,25 +249,23 @@
           "Ballari",
 
         rating:
-          "3.4",
+          "3.5",
 
-        consultation:
-          "₹250–₹500",
+        phone:
+          "09480874519",
 
         treatments:[
 
-          "Blood Tests - ₹300–₹1200",
-          "ECG - ₹500",
-          "X-Ray - ₹700",
-          "Ultrasound - ₹1800",
-          "CT Scan - ₹4500–₹7000",
-          "MRI Scan - ₹5500–₹12000",
-          "ICU/Day - ₹8000+"
+          ["Consultation","₹250–₹500"],
+          ["Blood Tests","₹300–₹1200"],
+          ["ECG","₹500"],
+          ["X-Ray","₹700"],
+          ["Ultrasound","₹1800"],
+          ["CT Scan","₹4500–₹7000"],
+          ["MRI Scan","₹5500–₹12000"],
+          ["ICU/Day","₹8000+"]
 
-        ],
-
-        phone:
-          "08579897989"
+        ]
 
       },
 
@@ -293,25 +278,22 @@
           "Ballari",
 
         rating:
-          "3.3",
-
-        consultation:
-          "₹300–₹600",
+          "3.4",
+        phone:
+          "8392256444",
 
         treatments:[
 
-          "CBC Test - ₹450",
-          "ECG - ₹500",
-          "X-Ray - ₹800",
-          "CT Scan - ₹5000–₹9000",
-          "MRI Scan - ₹6500–₹16000",
-          "Dialysis - ₹2500",
-          "ICU/Day - ₹10000–₹18000"
+          ["Consultation","₹300–₹600"],
+          ["CBC Test","₹450"],
+          ["ECG","₹500"],
+          ["X-Ray","₹800"],
+          ["CT Scan","₹5000–₹9000"],
+          ["MRI Scan","₹6500–₹16000"],
+          ["Dialysis","₹2500/session"],
+          ["ICU/Day","₹10000–₹18000"]
 
-        ],
-
-        phone:
-          "08392258888"
+        ]
 
       },
 
@@ -326,23 +308,21 @@
         rating:
           "3.3",
 
-        consultation:
-          "₹400–₹800",
+        phone:
+          "8579897989",
 
         treatments:[
 
-          "Blood Tests - ₹500–₹2000",
-          "X-Ray - ₹1000",
-          "Ultrasound - ₹2500",
-          "CT Scan - ₹6000–₹10000",
-          "MRI Scan - ₹7000–₹18000",
-          "Angiography - ₹25000+",
-          "ICU/Day - ₹12000–₹25000"
+          ["Consultation","₹400–₹800"],
+          ["Blood Tests","₹500–₹2000"],
+          ["X-Ray","₹1000"],
+          ["Ultrasound","₹2500"],
+          ["CT Scan","₹6000–₹10000"],
+          ["MRI Scan","₹7000–₹18000"],
+          ["Angiography","₹25000+"],
+          ["ICU/Day","₹12000–₹25000"]
 
-        ],
-
-        phone:
-          "8884489777"
+        ]
 
       },
 
@@ -357,53 +337,21 @@
         rating:
           "4.0",
 
-        consultation:
-          "₹300–₹700",
+        phone:
+          "8392270361",
 
         treatments:[
 
-          "Blood Tests - ₹400–₹1500",
-          "ECG - ₹500",
-          "Ultrasound - ₹2000",
-          "CT Scan - ₹5000–₹9000",
-          "MRI Scan - ₹6000–₹14000",
-          "Delivery Package - ₹40000–₹90000"
+          ["Consultation","₹300–₹700"],
+          ["Blood Tests","₹400–₹1500"],
+          ["ECG","₹500"],
+          ["Ultrasound","₹2000"],
+          ["CT Scan","₹5000–₹9000"],
+          ["MRI Scan","₹6000–₹14000"],
+          ["Delivery Package","₹40000–₹90000"],
+          ["ICU/Day","₹10000+"]
 
-        ],
-
-        phone:
-          "08392250000"
-
-      },
-
-      {
-
-        name:
-          "B K S Hospital",
-
-        city:
-          "Ballari",
-
-        rating:
-          "4.4",
-
-        consultation:
-          "₹400–₹800",
-
-        treatments:[
-
-          "CBC Test - ₹450",
-          "ECG - ₹600",
-          "X-Ray - ₹900",
-          "Ultrasound - ₹2500",
-          "CT Scan - ₹6000–₹10000",
-          "MRI Scan - ₹7000–₹18000",
-          "Delivery Package - ₹50000–₹1 lakh"
-
-        ],
-
-        phone:
-          "08392256500"
+        ]
 
       }
 
@@ -413,216 +361,139 @@
 
       const search =
         document.getElementById(
-          "hospitalSearch"
+          "searchInput"
         ).value.toLowerCase();
 
-      const container =
+      const results =
         document.getElementById(
-          "hospitalResults"
+          "results"
         );
 
-      container.style.display = "flex";
+      results.style.display =
+        "flex";
 
-      container.innerHTML = "";
+      results.innerHTML = "";
 
       if(search === ""){
 
         alert(
-          "Please enter hospital or treatment"
+          "Please enter hospital name"
         );
 
-        container.style.display = "none";
+        results.style.display =
+          "none";
 
         return;
 
       }
 
-      let found = false;
+      const filtered =
+        hospitals.filter(
 
-      hospitals.forEach(hospital => {
+          hospital =>
 
-        if(
           hospital.name
           .toLowerCase()
           .includes(search)
-        ){
 
-          found = true;
+        );
 
-          let treatmentList = "";
+      if(filtered.length === 0){
 
-          hospital.treatments.forEach(item => {
+        results.innerHTML =
 
-            treatmentList +=
-              `<li>${item}</li>`;
+          "<h2>No Hospital Found</h2>";
 
-          });
+        return;
 
-          container.innerHTML += `
+      }
 
-            <div class="card">
+      filtered.forEach(hospital => {
 
-              <h3>
-                ${hospital.name}
-              </h3>
+        let treatmentHTML = "";
+
+        hospital.treatments.forEach(item => {
+
+          treatmentHTML += `
+
+            <div class="treatment">
 
               <p>
-                📍 ${hospital.city}
+                🩺 ${item[0]}
               </p>
 
               <p>
-                ⭐ Rating:
-                ${hospital.rating}
+                💰 ${item[1]}
               </p>
-
-              <p>
-                💰 Consultation:
-                ${hospital.consultation}
-              </p>
-
-              <p>
-                🩺 All Treatments:
-              </p>
-
-              <ul>
-                ${treatmentList}
-              </ul>
-
-              <button onclick="openMap('${hospital.name}')">
-
-                📍 Open Map
-
-              </button>
-
-              <button onclick="callHospital('${hospital.phone}')">
-
-                📞 Call
-
-              </button>
-
-              <button onclick="callAmbulance()">
-
-                🚑 Ambulance
-
-              </button>
-
-              <button onclick="callEmergency()">
-
-                🆘 Emergency
-
-              </button>
 
             </div>
 
           `;
 
-        }
+        });
 
-        else{
+        results.innerHTML += `
 
-          const matchedTreatments =
-            hospital.treatments.filter(
+          <div class="card">
 
-              treatment =>
+            <h3>
+              ${hospital.name}
+            </h3>
 
-              treatment
-              .toLowerCase()
-              .includes(search)
+            <p>
+              📍 ${hospital.city}
+            </p>
 
-            );
+            <p>
+              ⭐ Rating:
+              ${hospital.rating}
+            </p>
 
-          if(matchedTreatments.length > 0){
+            ${treatmentHTML}
 
-            found = true;
+            <button onclick="openMap('${hospital.name}')">
 
-            let treatmentList = "";
+              📍 Map
 
-            matchedTreatments.forEach(item => {
+            </button>
 
-              treatmentList +=
-                `<li>${item}</li>`;
+            <button onclick="callHospital('${hospital.phone}')">
 
-            });
+              📞 Call
 
-            container.innerHTML += `
+            </button>
 
-              <div class="card">
+            <button onclick="shareHospital('${hospital.name}')">
 
-                <h3>
-                  ${hospital.name}
-                </h3>
+              📤 Share
 
-                <p>
-                  📍 ${hospital.city}
-                </p>
+            </button>
 
-                <p>
-                  ⭐ Rating:
-                  ${hospital.rating}
-                </p>
+            <button onclick="callAmbulance()">
 
-                <p>
-                  💰 Consultation:
-                  ${hospital.consultation}
-                </p>
+              🚑 Ambulance
 
-                <p>
-                  🩺 Matching Treatment:
-                </p>
+            </button>
 
-                <ul>
-                  ${treatmentList}
-                </ul>
+            <button onclick="callEmergency()">
 
-                <button onclick="openMap('${hospital.name}')">
+              🆘 Emergency
 
-                  📍 Open Map
+            </button>
 
-                </button>
+          </div>
 
-                <button onclick="callHospital('${hospital.phone}')">
-
-                  📞 Call
-
-                </button>
-
-                <button onclick="callAmbulance()">
-
-                  🚑 Ambulance
-
-                </button>
-
-                <button onclick="callEmergency()">
-
-                  🆘 Emergency
-
-                </button>
-
-              </div>
-
-            `;
-
-          }
-
-        }
+        `;
 
       });
 
-      if(!found){
-
-        container.innerHTML =
-
-          "<h2>No Hospitals Found</h2>";
-
-      }
-
     }
 
-    function openMap(hospitalName){
+    function openMap(hospital){
 
       window.open(
 
-        `https://www.google.com/maps/search/${hospitalName}+Ballari`,
+        `https://www.google.com/maps/search/${hospital}+Ballari`,
 
         "_blank"
 
@@ -634,6 +505,34 @@
 
       window.location.href =
         "tel:" + phone;
+
+    }
+
+    function shareHospital(hospital){
+
+      if(navigator.share){
+
+        navigator.share({
+
+          title:hospital,
+
+          text:
+            "Hospital Details",
+
+          url:
+            window.location.href
+
+        });
+
+      }
+
+      else{
+
+        alert(
+          "Sharing not supported"
+        );
+
+      }
 
     }
 
@@ -651,7 +550,7 @@
 
     }
 
-    function voiceSupport(){
+    function startVoice(){
 
       const language =
         document.getElementById(
@@ -669,17 +568,13 @@
 
           "Welcome to Affordable Healthcare Finder. " +
 
-          "This application helps you search hospitals and treatments. " +
+          "Search hospital name to view treatments and treatment costs. " +
 
-          "Type hospital name to see all treatments and costs. " +
-
-          "Type treatment name to see hospitals providing that treatment. " +
-
-          "Use map button for location. " +
+          "Use map button for hospital location. " +
 
           "Use call button to contact hospital. " +
 
-          "Use ambulance and emergency buttons during emergency situations.";
+          "Use ambulance and emergency buttons during emergency.";
 
       }
 
@@ -689,9 +584,9 @@
 
           "ಅಫೋರ್ಡಬಲ್ ಹೆಲ್ತ್ ಕೇರ್ ಫೈಂಡರ್ ಗೆ ಸ್ವಾಗತ. " +
 
-          "ಆಸ್ಪತ್ರೆ ಅಥವಾ ಚಿಕಿತ್ಸೆಯ ಹೆಸರನ್ನು ಹುಡುಕಿ. " +
+          "ಆಸ್ಪತ್ರೆಯ ಹೆಸರನ್ನು ಹುಡುಕಿ ಚಿಕಿತ್ಸೆ ಮತ್ತು ವೆಚ್ಚವನ್ನು ನೋಡಿ. " +
 
-          "ಮ್ಯಾಪ್ ಮತ್ತು ಕಾಲ್ ಬಟನ್ ಬಳಸಿ ಆಸ್ಪತ್ರೆಯನ್ನು ಸಂಪರ್ಕಿಸಬಹುದು.";
+          "ಮ್ಯಾಪ್ ಮತ್ತು ಕಾಲ್ ಬಟನ್ ಬಳಸಬಹುದು.";
 
       }
 
@@ -701,7 +596,7 @@
 
           "अफोर्डेबल हेल्थ केयर फाइंडर में आपका स्वागत है। " +
 
-          "अस्पताल या इलाज का नाम खोजें। " +
+          "अस्पताल का नाम खोजें और इलाज की लागत देखें। " +
 
           "मैप और कॉल बटन का उपयोग करें।";
 
@@ -713,13 +608,15 @@
 
           "అఫోర్డబుల్ హెల్త్ కేర్ ఫైండర్ కు స్వాగతం. " +
 
-          "హాస్పిటల్ లేదా ట్రీట్మెంట్ పేరు సెర్చ్ చేయండి. " +
+          "హాస్పిటల్ పేరు సెర్చ్ చేసి ట్రీట్మెంట్ ఖర్చులు చూడండి. " +
 
           "మ్యాప్ మరియు కాల్ బటన్లను ఉపయోగించండి.";
 
       }
 
-      window.speechSynthesis.speak(speech);
+      window.speechSynthesis.speak(
+        speech
+      );
 
     }
 
